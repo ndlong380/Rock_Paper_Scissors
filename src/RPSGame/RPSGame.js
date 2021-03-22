@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 
 class RPSGame extends Component {
   render() {
-
     return (
       <div className="game">
         <div className="row text-center mt-5">
@@ -37,16 +36,12 @@ class RPSGame extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     playGame: () => {
-      let count = 0;
-      let randomAiItem = setInterval(() => {
-        dispatch({
-          type: "RANDOM",
-        });
-        count++;
-        if (count >= 10) {
-          clearInterval(randomAiItem);
-        }
-      }, 100);
+      dispatch({
+        type: "RANDOM",
+      });
+      dispatch({
+        type: "END_GAME",
+      });
     },
   };
 };
